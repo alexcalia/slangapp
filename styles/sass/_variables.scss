@@ -1,0 +1,19 @@
+@mixin fontStyling($size,$height,$spacing: normal) {
+    font-size: $size;
+    text-align: center;
+    line-height: $height;
+    letter-spacing: 1px;
+    font-family: 'Passion One', 'serif';
+}
+
+@mixin buttonStyling(){
+    background: $twitterBlue;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+$twitterBlue: #1DA1F2;
+$white: #F5F8FA;
+$darkGrey: #14171A;

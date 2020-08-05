@@ -1,0 +1,119 @@
+/****************************
+    DESCRIPTION SECTION
+****************************/
+.descriptionSection {
+    padding: 10px 0;
+
+    p {
+        padding: 5px 0;
+    }
+}
+
+/****************************
+    SECRET MODE SECTION
+****************************/
+.secretHidden, .errorHidden {
+    display: none;
+}
+
+.secretDescription {
+    margin-top: 10px;
+
+    p {
+        margin-top: 20px;
+    }
+
+    form {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+
+        input {
+            @include fontStyling(3rem, default);
+            width: 200px;
+            height: 60px;
+            padding: 20px 0;
+            // background: $darkGrey;
+            border-radius: 10px;
+            border: 7px solid $twitterBlue;
+            // color: $white;
+            text-transform: uppercase;
+        }
+    }
+
+    .errorText {
+        font-size: 1.5rem;
+        color: red;
+        margin-top: 0;
+    }
+}
+
+/****************************
+ABBREVIATION BUTTONS SECTION
+****************************/
+.abbrvButtons {
+    padding: 30px 0;
+
+    ul {
+        display: grid;
+        grid-gap: 20px;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+
+        button {
+            @include fontStyling(3rem, default);
+            background: $twitterBlue;
+            border: none;
+            border-radius: 10px;
+            width: 150px;
+        }
+    }
+}
+
+/****************************
+        RESULTS SECTION
+****************************/
+.resultsSection {
+    padding: 70px 0 40px 0;
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 3rem;
+        line-height: 3rem;
+        height: 150px;
+    }
+}
+
+/****************************
+        SNARK SECTION
+****************************/
+.snarkSection {
+    text-align: center;
+    color: $twitterBlue;
+
+    button {
+        @include fontStyling(3rem, default);
+        @include buttonStyling;
+        color: $white;
+    }
+}
+
+/****************************
+        RESET SECTION
+****************************/
+.resetSection {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+
+    .sendMeBack {
+        @include fontStyling(2rem, default);
+        @include buttonStyling;   
+    }
+}

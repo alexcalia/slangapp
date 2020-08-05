@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Twitter Slang Generator</title>
+        <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700&display=swap" rel="stylesheet">
+        <link href="styles/styles.css" rel="stylesheet">
+    </head>
+
+    <body class="darkModeBackground darkModeText">
+        <!-- Header section-->
+        <header>
+            <div class= "wrapper">
+
+                <h1>Twitter Slang Generator</h1>
+
+                <div class="lightDarkModes">
+                    <button class="displayModeButton darkModeBackground" id="displayModeButton"><span class="fas fa-sun darkModeText"></span></button>
+                </div>
+
+            </div>
+        </header>
+
+        <!-- Main section -->
+        <main>
+            <div class="wrapper">
+                
+                <!-- Initial app description section -->
+                <section class="descriptionSection" id="descriptionSection"> 
+                    <p>Tired of not knowing what the hell all these millenials are saying on the TL?!</p>
+
+                    <p>Click a button below and find out what those pesky kids are talking about these days!</p>
+                </section>
+
+                <!-- Secret mode description and input box once it is unlocked -->
+                <section class="secretDescription secretHidden" id="secretDescription"> 
+                    <p>Type in the box below and press 'Enter'.  Show us your genius.</p>
+
+                    <form id="abbrvForm">
+                        <label class="srOnly" for="formChoice"></label>
+                        <input type="text" class="formChoice darkModeBackground darkModeText" id="formChoice" maxlength="8">
+                    </form>
+
+                    <p class="errorText errorHidden" id="errorText">Only letters are allowed, smartypants!</p>
+                </section>
+
+                <!-- Buttons section for selecting an abbreviation -->
+                <section class="abbrvButtons" id="abbrvButtons"> 
+                    <ul>
+                        <li><button class="abbrvChoice darkModeText" value="lmao">LMAO</button></li>
+                        <li><button class="abbrvChoice darkModeText" value="smh">SMH</button></li>
+                        <li><button class="abbrvChoice darkModeText" value="lmk">LMK</button></li>
+                        <li><button class="abbrvChoice darkModeText" value="omg">OMG</button></li>
+                        <li><button class="abbrvChoice darkModeText" value="fwiw">FWIW</button></li>
+                        <li><button class="abbrvChoice darkModeText" value="btw">BTW</button></li>
+                    </ul>
+                </section>
+        
+                <!-- Section where the results of the app display -->
+                <section class="resultsSection" id="resultsSection"></section> 
+
+                <!-- Snarky responses from the computer display here -->
+                <section class="snarkSection" id="snarkSection"></section> 
+
+                <!-- Button for resetting the app -->
+                <section class="resetSection" id="resetSection"> 
+                    <button class="sendMeBack secretHidden darkModeText">This power is too much. Send me back!</button>
+                </section>
+
+            </div>
+
+        </main>
+
+        <!-- Footer section -->
+        <footer> 
+            <p>Created by Alex Calia 2020</p>
+        </footer>
+
+        <!-- Font Awesome Script -->
+        <script src="https://kit.fontawesome.com/eb0dedd964.js" crossorigin="anonymous"></script>
+
+        <!-- JQuery script-->
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        
+        <!-- App script-->
+        <script src="./js/app.js"></script>
+
+    </body>
+</html>
