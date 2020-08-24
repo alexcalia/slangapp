@@ -5,7 +5,7 @@ const slangApp = {}
 
 //jQuery Cache
 slangApp.$snarkSection = $('#snarkSection');
-slangApp.$darkModeText= $('.darkModeText');
+slangApp.$darkModeText = $('.darkModeText');
 slangApp.$darkModeBackground = $('.darkModeBackground');
 slangApp.$resultsSection = $('#resultsSection');
 slangApp.$errorText = $('#errorText');
@@ -17,6 +17,7 @@ slangApp.$abbrvForm = $('#abbrvForm');
 slangApp.$descriptionSection = $('#descriptionSection');
 slangApp.$secretDescription = $('#secretDescription');
 slangApp.$sendMeBack = $('#sendMeBack');
+slangApp.$snarkSection = $('#snarkSection');
 
 // Defining arrays for each letter
 slangApp.wordBank = {
@@ -65,32 +66,32 @@ slangApp.snarkyPhrases = [
 // Snark phrase to display once modeCounter reaches a certain number as defined in the statements below
 slangApp.snarkyDisplay = function(){
     if (slangApp.modeCounter === 80) {
-        $('.snarkSection').html(`<p>${slangApp.snarkyPhrases[9]}</p><button class="finalForm darkModeText">THIS ISN'T EVEN MY FINAL FORM</button>`).on('click', '.finalForm',slangApp.enableSecretMode);
+        slangApp.$snarkSection.html(`<p>${slangApp.snarkyPhrases[9]}</p><button class="finalForm darkModeText">THIS ISN'T EVEN MY FINAL FORM</button>`).on('click', '.finalForm',slangApp.enableSecretMode);
     } else if (slangApp.modeCounter === 69) {
-        $('.snarkSection').html(`<p>${slangApp.snarkyPhrases[8]}</p>`)
+        slangApp.$snarkSection.html(`<p>${slangApp.snarkyPhrases[8]}</p>`)
     } else if (slangApp.modeCounter === 58) {
-        $('.snarkSection').html(`<p>${slangApp.snarkyPhrases[7]}</p>`)
+        slangApp.$snarkSection.html(`<p>${slangApp.snarkyPhrases[7]}</p>`)
     } else if (slangApp.modeCounter === 47) {
-        $('.snarkSection').html(`<p>${slangApp.snarkyPhrases[6]}</p>`)
+        slangApp.$snarkSection.html(`<p>${slangApp.snarkyPhrases[6]}</p>`)
     } else if (slangApp.modeCounter === 40) {
-        $('.snarkSection').html(`<p>${slangApp.snarkyPhrases[5]}</p>`)
+        slangApp.$snarkSection.html(`<p>${slangApp.snarkyPhrases[5]}</p>`)
     } else if (slangApp.modeCounter === 34) {
-        $('.snarkSection').html(`<p>${slangApp.snarkyPhrases[4]}</p>`)
+        slangApp.$snarkSection.html(`<p>${slangApp.snarkyPhrases[4]}</p>`)
     } else if (slangApp.modeCounter === 25) {
-        $('.snarkSection').html(`<p>${slangApp.snarkyPhrases[3]}</p>`) 
+        slangApp.$snarkSection.html(`<p>${slangApp.snarkyPhrases[3]}</p>`) 
     } else if (slangApp.modeCounter === 15) {
-        $('.snarkSection').html(`<p>${slangApp.snarkyPhrases[2]}</p>`)
+        slangApp.$snarkSection.html(`<p>${slangApp.snarkyPhrases[2]}</p>`)
     } else if (slangApp.modeCounter === 7) {
-        $('.snarkSection').html(`<p>${slangApp.snarkyPhrases[1]}</p>`)
+        slangApp.$snarkSection.html(`<p>${slangApp.snarkyPhrases[1]}</p>`)
     } else if (slangApp.modeCounter === 2) {
-        $('.snarkSection').html(`<p>${slangApp.snarkyPhrases[0]}</p>`)
+        slangApp.$snarkSection.html(`<p>${slangApp.snarkyPhrases[0]}</p>`)
     }   
 }
 
 // Light and dark mode changer
 slangApp.lightDarkMode = function () {
-    $('.darkModeText').toggleClass('lightModeText');
-    $('.darkModeBackground').toggleClass('lightModeBackground');
+    slangApp.$darkModeText.toggleClass('lightModeText');
+    slangApp.$darkModeBackground.toggleClass('lightModeBackground');
 }
 
 // Phrase Generator
@@ -110,7 +111,7 @@ slangApp.phraseGenerator = function () {
     const resultString = wordArray.join(" ");
 
     // Print results to screen
-    $('.resultsSection').html(`<h2>${abbrvChoice}</h2><p>${resultString}</p>`);
+    slangApp.$resultsSection.html(`<h2>${abbrvChoice}</h2><p>${resultString}</p>`);
 
     // Increase secret mode counter
     slangApp.modeCounter++;
@@ -133,11 +134,11 @@ slangApp.secretModeGenerator = function (event) {
     event.preventDefault();
 
     //Hide input error text
-    $('.errorText').addClass("errorHidden");
+    slangApp.$errorText.addClass("errorHidden");
 
     // Reset input if anything other than letters are detected.  Display error text under input if true
     if (!/^[A-Za-z]+$/.test($('input').val())){
-        $('.errorText').removeClass("errorHidden");
+        slangApp.$errorText.removeClass("errorHidden");
         $('input').val("");
     } 
 
@@ -155,18 +156,18 @@ slangApp.secretModeGenerator = function (event) {
     const resultString = wordArray.join(" ");
 
     // Print results to screen
-    $('.resultsSection').html(`<h2>${abbrvChoice}</h2><p>${resultString}</p>`);
+    slangApp.$resultsSection.html(`<h2>${abbrvChoice}</h2><p>${resultString}</p>`);
 }// End of Secret mode phrase generator
 
 // Enable Secret mode and clear the page
 slangApp.enableSecretMode = function () {
     $('header h1').text('You have transcended the internet. Create your own abbreviations and rule the Twitterverse.');
-    $('.descriptionSection').remove();
-    $('.abbrvButtons').remove();
-    $('.snarkSection').remove();
-    $('.sendMeBack').removeClass('secretHidden');
-    $('.resultsSection').empty();
-    $('.secretDescription').removeClass('secretHidden');
+    slangApp.$descriptionSection.remove();
+    slangApp.$abbrvButtons.remove();
+    slangApp.$snarkSection.remove();
+    slangApp.$sendMeBack.removeClass('secretHidden');
+    slangApp.$resultsSection.empty();
+    slangApp.$secretDescription.removeClass('secretHidden');
     $('input').focus();
 }
 
@@ -175,23 +176,23 @@ slangApp.enableSecretMode = function () {
  *********************************/
 slangApp.eventListeners = function () {
     // Abbreviation button listener to generate phrases
-    $('.abbrvChoice').on('click', slangApp.phraseGenerator);
+    slangApp.$abbrvChoice.on('click', slangApp.phraseGenerator);
 
     // Found this at http://jsfiddle.net/EJFbt/45/  and it prevents spacebar from being used on input boxes
-    $("input").on({
+    $('input').on({
         keydown: function (e) {
             if (e.which === 32) return false;
         }
     });
 
     // Input box listener in secret mode to generate phrases
-    $('form').on('submit', slangApp.secretModeGenerator);
+    slangApp.$abbrvForm.on('submit', slangApp.secretModeGenerator);
 
     // Listener for the button that refreshes the page and brings back original abbreviation buttons
-    $('.sendMeBack').on('click', () => location.reload());
+    slangApp.$sendMeBack.on('click', () => location.reload());
 
     // Light and dark mode button listener
-    $('.displayModeButton').on('click', slangApp.lightDarkMode);
+    slangApp.$displayModeButton.on('click', slangApp.lightDarkMode);
 }
 
 /*********************************
